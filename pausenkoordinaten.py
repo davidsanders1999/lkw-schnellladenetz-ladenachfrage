@@ -128,6 +128,8 @@ def main():
     # -------------------------------------------------------------------------
     for index, edges_list in enumerate(list_trip_edges):
         
+        print(len(list_trip_edges))
+        
         travel_distance = list_distance_origin_road[index]  # Start-Distanz
         breaks = 0  # Zähler für Pausen (zur Bestimmung short/long)
         

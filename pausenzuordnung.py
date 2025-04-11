@@ -252,9 +252,9 @@ def main():
     # 7. Plot (optional)
     # -------------------------
     fig, ax = plt.subplots()
-    gdf_deutschland_nuts0.plot(ax=ax, facecolor='none', edgecolor='black')
-    gdf_short_breaks_germany.plot(ax=ax, markersize=1)
-    gdf_long_breaks_germany.plot(ax=ax, markersize=1)
+    # gdf_deutschland_nuts0.plot(ax=ax, facecolor='none', edgecolor='black')
+    # gdf_short_breaks_germany.plot(ax=ax, markersize=1)
+    # gdf_long_breaks_germany.plot(ax=ax, markersize=1)
     gdf_ausschreibung_kreis.plot(ax=ax, facecolor='none', edgecolor='black', alpha=0.5)
     fig.set_size_inches(9, 9)
     
