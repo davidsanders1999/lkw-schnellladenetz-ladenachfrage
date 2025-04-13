@@ -4,7 +4,7 @@ Dieses Repository enthält die Implementierung der Modellierung zur Bestimmung d
 
 ## Überblick
 
-Die Modellierung dient zur Berechnung und Analyse der Ladeanforderungen an 352 definierten Standorten im deutschen Autobahnnetz. Die wesentlichen Schritte sind:
+Die Modellierung dient zur Berechnung und Analyse der Ladeanforderungen an 352 definierten Standorten an bewirtschafteten und unbewirtschaften Rastanlagen am deutschen Autobahnnetz. Die wesentlichen Schritte sind:
 
 1. **Ermittlung von Pausenstandorten** auf Basis von Transportfahrten und regulatorischen Anforderungen
 2. **Zuordnung der Pausen** zu den Ladestandorten nach geometrischer Nähe und Auslastungsverteilung
@@ -15,9 +15,9 @@ Die Modellierung dient zur Berechnung und Analyse der Ladeanforderungen an 352 d
 
 Das Projekt besteht aus vier Hauptmodulen, die in sequentieller Reihenfolge ausgeführt werden:
 
-- `pausenkoordinaten.py`: Generiert Pausenpunkte entlang von Transportrouten
+- `pausenkoordinaten.py`: Generiert geografische Pausenpunkte entlang von Transportrouten
 - `pausenzuordnung.py`: Ordnet Pausenpunkte den nächstgelegenen Ladestandorten zu
-- `ladebedarf.py`: Berechnet den tatsächlichen Ladebedarf basierend auf Fahrzeugprognosen
+- `ladebedarf.py`: Berechnet den tatsächlichen Ladebedarf basierend auf Skalierungsfaktoren
 - `clustern.py`: Kategorisiert Standorte nach ähnlichen Nachfrageprofilen
 - `main.py`: Steuert die Ausführung der vier Module
 
