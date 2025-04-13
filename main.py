@@ -3,7 +3,7 @@ import pausenzuordnung
 import ladebedarf
 import clustern
 
-# pausenkoordinaten.main()
+pausenkoordinaten.main()
 pausenzuordnung.main()
 ladebedarf.main()
 clustern.main()
