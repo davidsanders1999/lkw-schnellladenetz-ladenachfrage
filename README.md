@@ -76,10 +76,10 @@ python clustern.py
 
 ### 1. Pausenkoordinaten
 
-Dieses Modul generiert Pausenpunkte für jeden Lkw basierend auf gesetzlichen Lenk- und Ruhezeiten:
+Dieses Modul generiert Pausenpunkte für jeden LKW basierend auf gesetzlichen Lenk- und Ruhezeiten:
 
 - Einlesen von O-D-Transportfahrten und Netzwerkdaten
-- Bestimmung von Pausenpunkten nach dem Trip-Chain-Ansatz unter Berücksichtigung der EU-Verordnung 561/2006
+- Bestimmung von Pausenpunkten nach dem Trip-Chain-Ansatz unter Berücksichtigung der [EU-Verordnung 561/2006](https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32006R0561)
 - Unterscheidung zwischen Ein- und Zwei-Fahrerfahrten
 - Berücksichtigung von Kurz- und Langzeitpausen (Lenkzeitunterbrechungen vs. Ruhezeiten)
 - Ausgabe der geografischen Koordinaten und Anzahl der Pausen
@@ -102,7 +102,6 @@ Dieses Modul ordnet die erzeugten Pausenpunkte den nächstgelegenen Ladestandort
 
 #### Konfigurationsmöglichkeiten:
 - `BUFFER_RADIUS`: Radius um jeden Ladestandort für die Zuordnung (standardmäßig 40000 m)
-- `CRS_TARGET`: Projektion für die räumliche Analyse (standardmäßig 'EPSG:32632')
 
 ### 3. Ladebedarf
 
@@ -110,7 +109,7 @@ Dieses Modul berechnet den tatsächlichen Ladebedarf unter Berücksichtigung von
 
 - Skalierung der Pausenzahlen mit Elektrifizierungsrate (`R_BEV_2035`) und Verkehrswachstum (`R_TRAFFIC_2035`)
 - Berücksichtigung des Anteils der Ladevorgänge am ausgeschriebenen Ladenetz (`R_SECTION`)
-- Verknüpfung der Standorte mit Verkehrszählungsdaten pro Wochentag
+- Verknüpfung der Standorte mit Befahrungsdaten des BALM pro Wochentag
 - Berechnung der täglichen Anzahl an Schnelllade- und Nachtladepausen für jeden Wochentag und Standort
 
 #### Konfigurationsmöglichkeiten:
@@ -146,7 +145,7 @@ Die Modellierung erzeugt folgende Ausgabedateien im Verzeichnis `Output/`:
 Die implementierte Modellierung folgt den in der Masterarbeit entwickelten methodischen Ansätzen:
 
 1. **Trip-Chain-Ansatz**: Ermittlung von Pausenpunkten auf Basis von Transportfahrten und EU-Lenk- und Ruhezeitvorschriften
-2. **Geometrische Zuordnung**: Räumliche Zuordnung der Pausenpunkte zu Ladestandorten mit Lastkappung für gleichmäßige Verteilung
+2. **Geometrische Zuordnung**: Räumliche Zuordnung der Pausenpunkte zu Ladestandorten
 3. **Skalierung nach Verkehrszählungen**: Wochentagsabhängige Verteilung der Ladevorgänge basierend auf Mauttabellendaten
 4. **Szenario 2035**: Projektion des Schwerlastverkehrs auf 2035 mit einer Elektrifizierungsrate von 74% und Verkehrswachstum von 4,1%
 5. **K-Means-Clustering**: Zusammenfassung der Standorte in drei repräsentative Cluster für weitere Analysen
