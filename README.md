@@ -36,11 +36,24 @@ Das Projekt besteht aus vier Hauptmodulen, die in sequentieller Reihenfolge ausg
 
 Die folgenden Eingabedateien müssen im Verzeichnis `Input/` vorhanden sein:
 
-- `01_Trucktrafficflow.csv`, `03_network-nodes.csv`, `04_network-edges.csv`: Daten aus Speth et al. (2022) "Synthetic European E-road freight transport flow data set for energy system modelling" [LINK](https://doi.org/10.1016/j.dib.2022.108172)
-- `ausschreibung_deutschlandnetz.xlsx`: Standorte der Ladeinfrastruktur basierend auf der Ausschreibung des Bundes [https://www.autobahn.de/die-autobahn/deutschlandnetz](https://www.autobahn.de/die-autobahn/deutschlandnetz)
-- `Befahrungen_25_1Q.csv`: Tagesspezifische Verkehrszählungen des Bundesamts für Logistik und Mobilität (BALM) [https://www.balm.bund.de/DE/Themen/Statistik/Verkehrsleistung/verkehrsleistung_node.html](https://www.balm.bund.de/DE/Themen/Statistik/Verkehrsleistung/verkehrsleistung_node.html)
-- `Mauttabelle.xlsx`: Mautabschnitte mit geographischen Koordinaten und Streckeninformationen des BALM [https://www.balm.bund.de/DE/Themen/Lkw-Maut/Mauthoehe/mauthoehe_node.html](https://www.balm.bund.de/DE/Themen/Lkw-Maut/Mauthoehe/mauthoehe_node.html)
-- `DE_NUTS5000.gpkg`: GeoPackage mit Informationen zu geografischen Regionen in Deutschland (Eurostat NUTS-Regionen) [https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units](https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units)
+- `01_Trucktrafficflow.csv`, `03_network-nodes.csv`, `04_network-edges.csv`
+
+Daten aus Speth et al. (2022) "Synthetic European road freight transport flow data." [LINK](https://doi.org/10.1016/j.dib.2021.107786)
+- `ausschreibung_deutschlandnetz.xlsx`
+
+Standorte des von der Bundesregierung geplanten Initialnetzes [LINK](https://www.autobahn.de/storage/user_upload/qbank/Standortliste_Lkw-Ladenetz.pdf)
+
+- `Befahrungen_25_1Q.csv`
+
+Pognostizierte Abschnittsbefahrungen des 1. Quartals 2025 erhoben durch das Bundesamt für Logistik und Mobilität (BALM) [LINK](https://www.balm.bund.de/SharedDocs/Downloads/DE/Verkehrsdatenmanagement/Befahrungen_2025_1Q.html?nn=541818)
+
+- `Mauttabelle.xlsx`
+
+ Mautabschnitte mit geographischen Koordinaten und Streckeninformationen des BALM [LINK](https://www.balm.bund.de/SharedDocs/Downloads/DE/Verkehrsdatenmanagement/Befahrungen_2025_1Q.html?nn=541818)
+ 
+- `DE_NUTS5000.gpkg`
+  
+ GeoPackage mit Informationen zu geografischen Regionen in Deutschland (Eurostat NUTS-Regionen) [LINK](https://ec.europa.eu/eurostat/web/regions/database)
 
 ## Ausführung
 
