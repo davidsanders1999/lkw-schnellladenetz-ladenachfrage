@@ -1,6 +1,6 @@
 # Modellierung der Flexibilitätspotenziale eines Lkw-Schnellladenetzes
 
-Dieses Repository enthält die Implementierung der Modellierung zur Bestimmung der Ladenachfrage und des Flexibilitätspotenzials für das vom Bund ausgeschriebene Schnellladenetz für elektrifizierte Lkw an deutschen Autobahnen. Die Implementierung basiert auf der Masterarbeit "**Potenziale eines flexibilisierten Schnellladenetzwerks für den elektrifizierten Schwerlastverkehr am deutschen Autobahnnetz**" von David Sanders.
+> Dieses Repository enthält die Implementierung der Modellierung zur Bestimmung der Ladenachfrage und des Flexibilitätspotenzials für das vom Bund ausgeschriebene Schnellladenetz für elektrifizierte Lkw an deutschen Autobahnen. Die Implementierung basiert auf der Masterarbeit "Potenziale eines flexibilisierten Schnellladenetzwerks für den elektrifizierten Schwerlastverkehr am deutschen Autobahnnetz" von David Sanders.
 
 ## Überblick
 
