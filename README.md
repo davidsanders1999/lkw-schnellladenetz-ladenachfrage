@@ -1,10 +1,10 @@
 # Modellierung der Flexibilitätspotenziale eines Lkw-Schnellladenetzes
 
-Dieses Repository enthält die Implementierung der Modellierung zur Bestimmung der Ladenachfrage und des Flexibilitätspotenzials für das vom Bund ausgeschriebene Schnellladenetz für elektrifizierte Lkw an deutschen Autobahnen. Die Implementierung basiert auf der Masterarbeit "Potenziale eines flexibilisierten Schnellladenetzwerks für den elektrifizierten Schwerlastverkehr am deutschen Autobahnnetz" von David Sanders.
+> Dieses Repository enthält die Implementierung der Modellierung zur Bestimmung der Ladenachfrage und des Flexibilitätspotenzials für das vom Bund ausgeschriebene Schnellladenetz für elektrifizierte Lkw an deutschen Autobahnen. Die Implementierung basiert auf der Masterarbeit "Potenziale eines flexibilisierten Schnellladenetzwerks für den elektrifizierten Schwerlastverkehr am deutschen Autobahnnetz" von David Sanders.
 
 ## Überblick
 
-Die Modellierung dient zur Berechnung und Analyse der Ladeanforderungen an 352 definierten Standorten im deutschen Autobahnnetz. Die wesentlichen Schritte sind:
+Die Modellierung dient zur Berechnung und Analyse der Ladeanforderungen an 352 definierten Standorten an bewirtschafteten und unbewirtschaften Rastanlagen am deutschen Autobahnnetz. Die wesentlichen Schritte sind:
 
 1. **Ermittlung von Pausenstandorten** auf Basis von Transportfahrten und regulatorischen Anforderungen
 2. **Zuordnung der Pausen** zu den Ladestandorten nach geometrischer Nähe und Auslastungsverteilung
@@ -15,9 +15,9 @@ Die Modellierung dient zur Berechnung und Analyse der Ladeanforderungen an 352 d
 
 Das Projekt besteht aus vier Hauptmodulen, die in sequentieller Reihenfolge ausgeführt werden:
 
-- `pausenkoordinaten.py`: Generiert Pausenpunkte entlang von Transportrouten
+- `pausenkoordinaten.py`: Generiert geografische Pausenpunkte entlang von Transportrouten
 - `pausenzuordnung.py`: Ordnet Pausenpunkte den nächstgelegenen Ladestandorten zu
-- `ladebedarf.py`: Berechnet den tatsächlichen Ladebedarf basierend auf Fahrzeugprognosen
+- `ladebedarf.py`: Berechnet den tatsächlichen Ladebedarf basierend auf Skalierungsfaktoren
 - `clustern.py`: Kategorisiert Standorte nach ähnlichen Nachfrageprofilen
 - `main.py`: Steuert die Ausführung der vier Module
 
@@ -36,11 +36,24 @@ Das Projekt besteht aus vier Hauptmodulen, die in sequentieller Reihenfolge ausg
 
 Die folgenden Eingabedateien müssen im Verzeichnis `Input/` vorhanden sein:
 
-- `01_Trucktrafficflow.csv`, `03_network-nodes.csv`, `04_network-edges.csv`: Daten aus Speth et al. (2022) "Synthetic European E-road freight transport flow data set for energy system modelling" [https://doi.org/10.1016/j.dib.2022.108172](https://doi.org/10.1016/j.dib.2022.108172)
-- `ausschreibung_deutschlandnetz.xlsx`: Standorte der Ladeinfrastruktur basierend auf der Ausschreibung des Bundes [https://www.autobahn.de/die-autobahn/deutschlandnetz](https://www.autobahn.de/die-autobahn/deutschlandnetz)
-- `Befahrungen_25_1Q.csv`: Tagesspezifische Verkehrszählungen des Bundesamts für Logistik und Mobilität (BALM) [https://www.balm.bund.de/DE/Themen/Statistik/Verkehrsleistung/verkehrsleistung_node.html](https://www.balm.bund.de/DE/Themen/Statistik/Verkehrsleistung/verkehrsleistung_node.html)
-- `Mauttabelle.xlsx`: Mautabschnitte mit geographischen Koordinaten und Streckeninformationen des BALM [https://www.balm.bund.de/DE/Themen/Lkw-Maut/Mauthoehe/mauthoehe_node.html](https://www.balm.bund.de/DE/Themen/Lkw-Maut/Mauthoehe/mauthoehe_node.html)
-- `DE_NUTS5000.gpkg`: GeoPackage mit Informationen zu geografischen Regionen in Deutschland (Eurostat NUTS-Regionen) [https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units](https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units)
+- `01_Trucktrafficflow.csv`, `03_network-nodes.csv`, `04_network-edges.csv`
+
+Daten aus Speth et al. (2022) "Synthetic European road freight transport flow data." [LINK](https://doi.org/10.1016/j.dib.2021.107786)
+- `ausschreibung_deutschlandnetz.xlsx`
+
+Standorte des von der Bundesregierung geplanten Initialnetzes [LINK](https://www.autobahn.de/storage/user_upload/qbank/Standortliste_Lkw-Ladenetz.pdf)
+
+- `Befahrungen_25_1Q.csv`
+
+Pognostizierte Abschnittsbefahrungen des 1. Quartals 2025 erhoben durch das Bundesamt für Logistik und Mobilität (BALM) [LINK](https://www.balm.bund.de/SharedDocs/Downloads/DE/Verkehrsdatenmanagement/Befahrungen_2025_1Q.html?nn=541818)
+
+- `Mauttabelle.xlsx`
+
+ Mautabschnitte mit geographischen Koordinaten und Streckeninformationen des BALM [LINK](https://www.balm.bund.de/SharedDocs/Downloads/DE/Verkehrsdatenmanagement/Befahrungen_2025_1Q.html?nn=541818)
+ 
+- `DE_NUTS5000.gpkg`
+  
+ GeoPackage mit Informationen zu geografischen Regionen in Deutschland (Eurostat NUTS-Regionen) [LINK](https://ec.europa.eu/eurostat/web/regions/database)
 
 ## Ausführung
 
@@ -63,10 +76,10 @@ python clustern.py
 
 ### 1. Pausenkoordinaten
 
-Dieses Modul generiert Pausenpunkte für jeden Lkw basierend auf gesetzlichen Lenk- und Ruhezeiten:
+Dieses Modul generiert Pausenpunkte für jeden LKW basierend auf gesetzlichen Lenk- und Ruhezeiten:
 
 - Einlesen von O-D-Transportfahrten und Netzwerkdaten
-- Bestimmung von Pausenpunkten nach dem Trip-Chain-Ansatz unter Berücksichtigung der EU-Verordnung 561/2006
+- Bestimmung von Pausenpunkten nach dem Trip-Chain-Ansatz unter Berücksichtigung der [EU-Verordnung 561/2006](https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32006R0561)
 - Unterscheidung zwischen Ein- und Zwei-Fahrerfahrten
 - Berücksichtigung von Kurz- und Langzeitpausen (Lenkzeitunterbrechungen vs. Ruhezeiten)
 - Ausgabe der geografischen Koordinaten und Anzahl der Pausen
@@ -89,7 +102,6 @@ Dieses Modul ordnet die erzeugten Pausenpunkte den nächstgelegenen Ladestandort
 
 #### Konfigurationsmöglichkeiten:
 - `BUFFER_RADIUS`: Radius um jeden Ladestandort für die Zuordnung (standardmäßig 40000 m)
-- `CRS_TARGET`: Projektion für die räumliche Analyse (standardmäßig 'EPSG:32632')
 
 ### 3. Ladebedarf
 
@@ -97,7 +109,7 @@ Dieses Modul berechnet den tatsächlichen Ladebedarf unter Berücksichtigung von
 
 - Skalierung der Pausenzahlen mit Elektrifizierungsrate (`R_BEV_2035`) und Verkehrswachstum (`R_TRAFFIC_2035`)
 - Berücksichtigung des Anteils der Ladevorgänge am ausgeschriebenen Ladenetz (`R_SECTION`)
-- Verknüpfung der Standorte mit Verkehrszählungsdaten pro Wochentag
+- Verknüpfung der Standorte mit Befahrungsdaten des BALM pro Wochentag
 - Berechnung der täglichen Anzahl an Schnelllade- und Nachtladepausen für jeden Wochentag und Standort
 
 #### Konfigurationsmöglichkeiten:
@@ -133,7 +145,7 @@ Die Modellierung erzeugt folgende Ausgabedateien im Verzeichnis `Output/`:
 Die implementierte Modellierung folgt den in der Masterarbeit entwickelten methodischen Ansätzen:
 
 1. **Trip-Chain-Ansatz**: Ermittlung von Pausenpunkten auf Basis von Transportfahrten und EU-Lenk- und Ruhezeitvorschriften
-2. **Geometrische Zuordnung**: Räumliche Zuordnung der Pausenpunkte zu Ladestandorten mit Lastkappung für gleichmäßige Verteilung
+2. **Geometrische Zuordnung**: Räumliche Zuordnung der Pausenpunkte zu Ladestandorten
 3. **Skalierung nach Verkehrszählungen**: Wochentagsabhängige Verteilung der Ladevorgänge basierend auf Mauttabellendaten
 4. **Szenario 2035**: Projektion des Schwerlastverkehrs auf 2035 mit einer Elektrifizierungsrate von 74% und Verkehrswachstum von 4,1%
 5. **K-Means-Clustering**: Zusammenfassung der Standorte in drei repräsentative Cluster für weitere Analysen
