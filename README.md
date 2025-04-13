@@ -36,7 +36,7 @@ Das Projekt besteht aus vier Hauptmodulen, die in sequentieller Reihenfolge ausg
 
 Die folgenden Eingabedateien müssen im Verzeichnis `Input/` vorhanden sein:
 
-- `01_Trucktrafficflow.csv`, `03_network-nodes.csv`, `04_network-edges.csv`: Daten aus Speth et al. (2022) "Synthetic European E-road freight transport flow data set for energy system modelling" [https://doi.org/10.1016/j.dib.2022.108172](https://doi.org/10.1016/j.dib.2022.108172)
+- `01_Trucktrafficflow.csv`, `03_network-nodes.csv`, `04_network-edges.csv`: Daten aus Speth et al. (2022) "Synthetic European E-road freight transport flow data set for energy system modelling" [LINK](https://doi.org/10.1016/j.dib.2022.108172)
 - `ausschreibung_deutschlandnetz.xlsx`: Standorte der Ladeinfrastruktur basierend auf der Ausschreibung des Bundes [https://www.autobahn.de/die-autobahn/deutschlandnetz](https://www.autobahn.de/die-autobahn/deutschlandnetz)
 - `Befahrungen_25_1Q.csv`: Tagesspezifische Verkehrszählungen des Bundesamts für Logistik und Mobilität (BALM) [https://www.balm.bund.de/DE/Themen/Statistik/Verkehrsleistung/verkehrsleistung_node.html](https://www.balm.bund.de/DE/Themen/Statistik/Verkehrsleistung/verkehrsleistung_node.html)
 - `Mauttabelle.xlsx`: Mautabschnitte mit geographischen Koordinaten und Streckeninformationen des BALM [https://www.balm.bund.de/DE/Themen/Lkw-Maut/Mauthoehe/mauthoehe_node.html](https://www.balm.bund.de/DE/Themen/Lkw-Maut/Mauthoehe/mauthoehe_node.html)
