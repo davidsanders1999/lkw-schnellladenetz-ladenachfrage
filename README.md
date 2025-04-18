@@ -15,7 +15,7 @@ Die Modellierung dient zur Berechnung und Analyse der Ladeanforderungen an 352 d
 
 Das Projekt besteht aus vier Hauptmodulen, die in sequentieller Reihenfolge ausgeführt werden:
 
-- `pausenkoordinaten.py`: Generiert geografische Pausenpunkte entlang von Transportrouten
+- `pausenkoordinaten.py`: Generiert geografische Pausenpunkte entlang Transportrouten
 - `pausenzuordnung.py`: Ordnet Pausenpunkte den nächstgelegenen Ladestandorten zu
 - `ladebedarf.py`: Berechnet den tatsächlichen Ladebedarf basierend auf Skalierungsfaktoren
 - `clustern.py`: Kategorisiert Standorte nach ähnlichen Nachfrageprofilen
@@ -45,7 +45,7 @@ Standorte des von der Bundesregierung geplanten Initialnetzes [LINK](https://www
 
 - `Befahrungen_25_1Q.csv`
 
-Pognostizierte Abschnittsbefahrungen des 1. Quartals 2025 erhoben durch das Bundesamt für Logistik und Mobilität (BALM) [LINK](https://www.balm.bund.de/SharedDocs/Downloads/DE/Verkehrsdatenmanagement/Befahrungen_2025_1Q.html?nn=541818)
+Prognostizierte Abschnittsbefahrungen des 1. Quartals 2025 erhoben durch das Bundesamt für Logistik und Mobilität (BALM) [LINK](https://www.balm.bund.de/SharedDocs/Downloads/DE/Verkehrsdatenmanagement/Befahrungen_2025_1Q.html?nn=541818)
 
 - `Mauttabelle.xlsx`
 
